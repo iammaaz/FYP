@@ -5,12 +5,25 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:sessionStorage.removeItem('accessToken');$('#logoutForm').submit();">Log off</a></li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li><a href="javascript:sessionStorage.removeItem('accessToken');$('#logoutForm').submit();">Log off</a>
+    </li>
+    @if (User.IsInRole("Vendor"))
+        {
+            <li>
+                @Html.ActionLink("Dashboard", "VendorPanel", "Vendor" )
+            </li>
+        }
+        else if (User.IsInRole("Admin"))
+        {
+            <li>
+                @Html.ActionLink("Dashboard", "AdminPanel", "Admin")
+            </li>
+        }
+</ul>
     }
 }
 else

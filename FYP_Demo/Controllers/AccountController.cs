@@ -18,8 +18,11 @@ namespace FYP_Demo.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        ApplicationDbContext context;
+
         public AccountController()
         {
+            context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -151,6 +154,7 @@ namespace FYP_Demo.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(),"Name","Name");
             return View();
         }
 
@@ -161,12 +165,18 @@ namespace FYP_Demo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            //Populate the DropDownList Again 
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Hometown = model.Hometown };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName=model.FirstName, LastName=model.LastName};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //var currentUser = UserManager.FindByName(user.UserName);
+                    //var roleresult = UserManager.AddToRole(currentUser.Id, model.UserRoles);
+
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -174,12 +184,24 @@ namespace FYP_Demo.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    
+                    //Assign Role to User Here
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    if (model.UserRoles == "Admin")
+                    {
+                        return RedirectToAction("AdminPanel", "Admin");
+                    }
+                    else if (model.UserRoles == "Vendor")
+                    {
+                        return RedirectToAction("VendorPanel", "Vendor");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "ListyHome");
+                    }
                 }
                 AddErrors(result);
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -404,7 +426,7 @@ namespace FYP_Demo.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "ListyHome");
         }
 
         //
@@ -461,7 +483,19 @@ namespace FYP_Demo.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("AdminPanel", "Admin");
+            }
+            else if (User.IsInRole("Vendor"))
+            {
+                return RedirectToAction("VendorPanel", "Vendor");
+            }
+            else
+            {
+
+                return RedirectToAction("Index", "ListyHome");
+            }
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

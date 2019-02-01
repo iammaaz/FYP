@@ -1,0 +1,1234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Taqreeb_FYPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Hometown" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CarInfo">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorInfoID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RegNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="Doors" Type="int" />
+          <Property Name="Transmission" Type="nvarchar" MaxLength="50" />
+          <Property Name="AC" Type="bit" />
+        </EntityType>
+        <EntityType Name="EventTypes">
+          <Key>
+            <PropertyRef Name="EventTypeID" />
+          </Key>
+          <Property Name="EventTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HallActivities">
+          <Key>
+            <PropertyRef Name="HallActivityID" />
+          </Key>
+          <Property Name="HallActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HallActivityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HallAddress">
+          <Key>
+            <PropertyRef Name="HallInfolD" />
+          </Key>
+          <Property Name="HallInfolD" Type="int" Nullable="false" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HallCapacity">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+          </Key>
+          <Property Name="HallInfoID" Type="int" Nullable="false" />
+          <Property Name="StandingCapacity" Type="int" />
+          <Property Name="Seated" Type="int" />
+          <Property Name="ClassRoomCapacity" Type="int" />
+          <Property Name="ThreatreCapacity" Type="int" />
+          <Property Name="BanquetCapacity" Type="int" />
+          <Property Name="ConferanceCapacity" Type="int" />
+          <Property Name="UShapeCapacity" Type="int" />
+          <Property Name="AdditionalInfoCapacity" Type="nvarchar(max)" />
+          <Property Name="FloorArea" Type="int" />
+        </EntityType>
+        <EntityType Name="HallEvents">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+            <PropertyRef Name="EventTypeID" />
+          </Key>
+          <Property Name="HallInfoID" Type="int" Nullable="false" />
+          <Property Name="EventTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HallFacilities">
+          <Key>
+            <PropertyRef Name="HallFacilityID" />
+          </Key>
+          <Property Name="HallFacilityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HallFacilityType" Type="nvarchar" MaxLength="50" />
+          <Property Name="HallFacilityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HallInfo">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+          </Key>
+          <Property Name="HallInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorInfoID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="HallName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HallMapLocation" Type="geography" />
+          <Property Name="HallDescription" Type="nvarchar(max)" />
+          <Property Name="HallShortDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HallType">
+          <Key>
+            <PropertyRef Name="HallTypeID" />
+          </Key>
+          <Property Name="HallTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImageDemo">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HallImage" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="MyHallActivities">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+            <PropertyRef Name="HallActivityID" />
+          </Key>
+          <Property Name="HallInfoID" Type="int" Nullable="false" />
+          <Property Name="HallActivityID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MyHallFacilities">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+            <PropertyRef Name="HallFacilityID" />
+          </Key>
+          <Property Name="HallInfoID" Type="int" Nullable="false" />
+          <Property Name="HallFacilityID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MyHallPricing">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+          </Key>
+          <Property Name="HallInfoID" Type="int" Nullable="false" />
+          <Property Name="PricePerPerson" Type="int" Nullable="false" />
+          <Property Name="RentPerHour" Type="int" Nullable="false" />
+          <Property Name="AdditionalPricingInfo" Type="nvarchar(max)" />
+          <Property Name="ReservationDeposit" Type="int" />
+          <Property Name="CleaningFee" Type="int" />
+          <Property Name="CancellationPolicy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MyHallTypes">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+            <PropertyRef Name="HallTypeID" />
+          </Key>
+          <Property Name="HallInfoID" Type="int" Nullable="false" />
+          <Property Name="HallTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VendorAddress">
+          <Key>
+            <PropertyRef Name="VendorInfoID" />
+          </Key>
+          <Property Name="VendorInfoID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CarInfo_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarInfo">
+              <PropertyRef Name="VendorInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallAddress_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HallAddress" Type="Self.HallAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="HallAddress">
+              <PropertyRef Name="HallInfolD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallCapacity_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HallCapacity" Type="Self.HallCapacity" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="HallCapacity">
+              <PropertyRef Name="HallInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallEvents_EventTypes">
+          <End Role="EventTypes" Type="Self.EventTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HallEvents" Type="Self.HallEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventTypes">
+              <PropertyRef Name="EventTypeID" />
+            </Principal>
+            <Dependent Role="HallEvents">
+              <PropertyRef Name="EventTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallEvents_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HallEvents" Type="Self.HallEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="HallEvents">
+              <PropertyRef Name="HallInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallInfo_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HallInfo">
+              <PropertyRef Name="VendorInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyHallActivities_HallActivities">
+          <End Role="HallActivities" Type="Self.HallActivities" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MyHallActivities" Type="Self.MyHallActivities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallActivities">
+              <PropertyRef Name="HallActivityID" />
+            </Principal>
+            <Dependent Role="MyHallActivities">
+              <PropertyRef Name="HallActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyHallActivities_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MyHallActivities" Type="Self.MyHallActivities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="MyHallActivities">
+              <PropertyRef Name="HallInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyHallFacilities_HallFacilities">
+          <End Role="HallFacilities" Type="Self.HallFacilities" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MyHallFacilities" Type="Self.MyHallFacilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallFacilities">
+              <PropertyRef Name="HallFacilityID" />
+            </Principal>
+            <Dependent Role="MyHallFacilities">
+              <PropertyRef Name="HallFacilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyHallFacilities_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MyHallFacilities" Type="Self.MyHallFacilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="MyHallFacilities">
+              <PropertyRef Name="HallInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyHallPricing_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MyHallPricing" Type="Self.MyHallPricing" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="MyHallPricing">
+              <PropertyRef Name="HallInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyHallTypes_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MyHallTypes" Type="Self.MyHallTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="MyHallTypes">
+              <PropertyRef Name="HallInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyHallTypes_HallType1">
+          <End Role="HallType" Type="Self.HallType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MyHallTypes" Type="Self.MyHallTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallType">
+              <PropertyRef Name="HallTypeID" />
+            </Principal>
+            <Dependent Role="MyHallTypes">
+              <PropertyRef Name="HallTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorAddress_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VendorAddress" Type="Self.VendorAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorAddress">
+              <PropertyRef Name="VendorInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Taqreeb_FYPModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarInfo" EntityType="Self.CarInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventTypes" EntityType="Self.EventTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallActivities" EntityType="Self.HallActivities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallAddress" EntityType="Self.HallAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallCapacity" EntityType="Self.HallCapacity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallEvents" EntityType="Self.HallEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallFacilities" EntityType="Self.HallFacilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallInfo" EntityType="Self.HallInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallType" EntityType="Self.HallType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageDemo" EntityType="Self.ImageDemo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyHallActivities" EntityType="Self.MyHallActivities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyHallFacilities" EntityType="Self.MyHallFacilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyHallPricing" EntityType="Self.MyHallPricing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyHallTypes" EntityType="Self.MyHallTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorAddress" EntityType="Self.VendorAddress" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CarInfo_AspNetUsers" Association="Self.FK_CarInfo_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CarInfo" EntitySet="CarInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallAddress_HallInfo" Association="Self.FK_HallAddress_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfo" />
+            <End Role="HallAddress" EntitySet="HallAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallCapacity_HallInfo" Association="Self.FK_HallCapacity_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfo" />
+            <End Role="HallCapacity" EntitySet="HallCapacity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallEvents_EventTypes" Association="Self.FK_HallEvents_EventTypes">
+            <End Role="EventTypes" EntitySet="EventTypes" />
+            <End Role="HallEvents" EntitySet="HallEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallEvents_HallInfo" Association="Self.FK_HallEvents_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfo" />
+            <End Role="HallEvents" EntitySet="HallEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallInfo_AspNetUsers" Association="Self.FK_HallInfo_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HallInfo" EntitySet="HallInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyHallActivities_HallActivities" Association="Self.FK_MyHallActivities_HallActivities">
+            <End Role="HallActivities" EntitySet="HallActivities" />
+            <End Role="MyHallActivities" EntitySet="MyHallActivities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyHallActivities_HallInfo" Association="Self.FK_MyHallActivities_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfo" />
+            <End Role="MyHallActivities" EntitySet="MyHallActivities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyHallFacilities_HallFacilities" Association="Self.FK_MyHallFacilities_HallFacilities">
+            <End Role="HallFacilities" EntitySet="HallFacilities" />
+            <End Role="MyHallFacilities" EntitySet="MyHallFacilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyHallFacilities_HallInfo" Association="Self.FK_MyHallFacilities_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfo" />
+            <End Role="MyHallFacilities" EntitySet="MyHallFacilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyHallPricing_HallInfo" Association="Self.FK_MyHallPricing_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfo" />
+            <End Role="MyHallPricing" EntitySet="MyHallPricing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyHallTypes_HallInfo" Association="Self.FK_MyHallTypes_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfo" />
+            <End Role="MyHallTypes" EntitySet="MyHallTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyHallTypes_HallType1" Association="Self.FK_MyHallTypes_HallType1">
+            <End Role="HallType" EntitySet="HallType" />
+            <End Role="MyHallTypes" EntitySet="MyHallTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorAddress_AspNetUsers" Association="Self.FK_VendorAddress_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="VendorAddress" EntitySet="VendorAddress" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Taqreeb_FYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hometown" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="HallInfoes" Relationship="Self.FK_HallInfo_AspNetUsers" FromRole="AspNetUsers" ToRole="HallInfo" />
+          <NavigationProperty Name="VendorAddress" Relationship="Self.FK_VendorAddress_AspNetUsers" FromRole="AspNetUsers" ToRole="VendorAddress" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="CarInfoes" Relationship="Taqreeb_FYPModel.FK_CarInfo_AspNetUsers" FromRole="AspNetUser" ToRole="CarInfo" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="EventTypeID" />
+          </Key>
+          <Property Name="EventTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HallInfoes" Relationship="Self.HallEvents" FromRole="EventTypes" ToRole="HallInfo" />
+        </EntityType>
+        <EntityType Name="HallActivity">
+          <Key>
+            <PropertyRef Name="HallActivityID" />
+          </Key>
+          <Property Name="HallActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HallActivityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HallInfoes" Relationship="Self.MyHallActivities" FromRole="HallActivities" ToRole="HallInfo" />
+        </EntityType>
+        <EntityType Name="HallAddress">
+          <Key>
+            <PropertyRef Name="HallInfolD" />
+          </Key>
+          <Property Name="HallInfolD" Type="Int32" Nullable="false" />
+          <Property Name="StreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HallInfo" Relationship="Self.FK_HallAddress_HallInfo" FromRole="HallAddress" ToRole="HallInfo" />
+        </EntityType>
+        <EntityType Name="HallCapacity">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+          </Key>
+          <Property Name="HallInfoID" Type="Int32" Nullable="false" />
+          <Property Name="StandingCapacity" Type="Int32" />
+          <Property Name="Seated" Type="Int32" />
+          <Property Name="ClassRoomCapacity" Type="Int32" />
+          <Property Name="ThreatreCapacity" Type="Int32" />
+          <Property Name="BanquetCapacity" Type="Int32" />
+          <Property Name="ConferanceCapacity" Type="Int32" />
+          <Property Name="UShapeCapacity" Type="Int32" />
+          <Property Name="AdditionalInfoCapacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FloorArea" Type="Int32" />
+          <NavigationProperty Name="HallInfo" Relationship="Self.FK_HallCapacity_HallInfo" FromRole="HallCapacity" ToRole="HallInfo" />
+        </EntityType>
+        <EntityType Name="HallFacility">
+          <Key>
+            <PropertyRef Name="HallFacilityID" />
+          </Key>
+          <Property Name="HallFacilityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HallFacilityType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HallFacilityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HallInfoes" Relationship="Self.MyHallFacilities" FromRole="HallFacilities" ToRole="HallInfo" />
+        </EntityType>
+        <EntityType Name="HallInfo">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+          </Key>
+          <Property Name="HallInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorInfoID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HallName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HallMapLocation" Type="Geography" />
+          <Property Name="HallDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HallShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_HallInfo_AspNetUsers" FromRole="HallInfo" ToRole="AspNetUsers" />
+          <NavigationProperty Name="HallAddress" Relationship="Self.FK_HallAddress_HallInfo" FromRole="HallInfo" ToRole="HallAddress" />
+          <NavigationProperty Name="HallCapacity" Relationship="Self.FK_HallCapacity_HallInfo" FromRole="HallInfo" ToRole="HallCapacity" />
+          <NavigationProperty Name="MyHallPricing" Relationship="Self.FK_MyHallPricing_HallInfo" FromRole="HallInfo" ToRole="MyHallPricing" />
+          <NavigationProperty Name="EventTypes" Relationship="Self.HallEvents" FromRole="HallInfo" ToRole="EventTypes" />
+          <NavigationProperty Name="HallActivities" Relationship="Self.MyHallActivities" FromRole="HallInfo" ToRole="HallActivities" />
+          <NavigationProperty Name="HallFacilities" Relationship="Self.MyHallFacilities" FromRole="HallInfo" ToRole="HallFacilities" />
+          <NavigationProperty Name="HallTypes" Relationship="Self.MyHallTypes" FromRole="HallInfo" ToRole="HallType" />
+        </EntityType>
+        <EntityType Name="HallType">
+          <Key>
+            <PropertyRef Name="HallTypeID" />
+          </Key>
+          <Property Name="HallTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HallInfoes" Relationship="Self.MyHallTypes" FromRole="HallType" ToRole="HallInfo" />
+        </EntityType>
+        <EntityType Name="ImageDemo">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HallImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MyHallPricing">
+          <Key>
+            <PropertyRef Name="HallInfoID" />
+          </Key>
+          <Property Name="HallInfoID" Type="Int32" Nullable="false" />
+          <Property Name="PricePerPerson" Type="Int32" Nullable="false" />
+          <Property Name="RentPerHour" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalPricingInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReservationDeposit" Type="Int32" />
+          <Property Name="CleaningFee" Type="Int32" />
+          <Property Name="CancellationPolicy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HallInfo" Relationship="Self.FK_MyHallPricing_HallInfo" FromRole="MyHallPricing" ToRole="HallInfo" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VendorAddress">
+          <Key>
+            <PropertyRef Name="VendorInfoID" />
+          </Key>
+          <Property Name="VendorInfoID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_VendorAddress_AspNetUsers" FromRole="VendorAddress" ToRole="AspNetUsers" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallInfo_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HallInfo">
+              <PropertyRef Name="VendorInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorAddress_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VendorAddress" Type="Self.VendorAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorAddress">
+              <PropertyRef Name="VendorInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallAddress_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HallAddress" Type="Self.HallAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="HallAddress">
+              <PropertyRef Name="HallInfolD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallCapacity_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HallCapacity" Type="Self.HallCapacity" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="HallCapacity">
+              <PropertyRef Name="HallInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyHallPricing_HallInfo">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MyHallPricing" Type="Self.MyHallPricing" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HallInfo">
+              <PropertyRef Name="HallInfoID" />
+            </Principal>
+            <Dependent Role="MyHallPricing">
+              <PropertyRef Name="HallInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <Association Name="HallEvents">
+          <End Role="EventTypes" Type="Self.EventType" Multiplicity="*" />
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="MyHallActivities">
+          <End Role="HallActivities" Type="Self.HallActivity" Multiplicity="*" />
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="MyHallFacilities">
+          <End Role="HallFacilities" Type="Self.HallFacility" Multiplicity="*" />
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="MyHallTypes">
+          <End Role="HallInfo" Type="Self.HallInfo" Multiplicity="*" />
+          <End Role="HallType" Type="Self.HallType" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Taqreeb_FYPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="EventTypes" EntityType="Self.EventType" />
+          <EntitySet Name="HallActivities" EntityType="Self.HallActivity" />
+          <EntitySet Name="HallAddresses" EntityType="Self.HallAddress" />
+          <EntitySet Name="HallCapacities" EntityType="Self.HallCapacity" />
+          <EntitySet Name="HallFacilities" EntityType="Self.HallFacility" />
+          <EntitySet Name="HallInfoes" EntityType="Self.HallInfo" />
+          <EntitySet Name="HallTypes" EntityType="Self.HallType" />
+          <EntitySet Name="ImageDemoes" EntityType="Self.ImageDemo" />
+          <EntitySet Name="MyHallPricings" EntityType="Self.MyHallPricing" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="VendorAddresses" EntityType="Self.VendorAddress" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallInfo_AspNetUsers" Association="Self.FK_HallInfo_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HallInfo" EntitySet="HallInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorAddress_AspNetUsers" Association="Self.FK_VendorAddress_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="VendorAddress" EntitySet="VendorAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallAddress_HallInfo" Association="Self.FK_HallAddress_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfoes" />
+            <End Role="HallAddress" EntitySet="HallAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallCapacity_HallInfo" Association="Self.FK_HallCapacity_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfoes" />
+            <End Role="HallCapacity" EntitySet="HallCapacities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyHallPricing_HallInfo" Association="Self.FK_MyHallPricing_HallInfo">
+            <End Role="HallInfo" EntitySet="HallInfoes" />
+            <End Role="MyHallPricing" EntitySet="MyHallPricings" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="HallEvents" Association="Self.HallEvents">
+            <End Role="EventTypes" EntitySet="EventTypes" />
+            <End Role="HallInfo" EntitySet="HallInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="MyHallActivities" Association="Self.MyHallActivities">
+            <End Role="HallActivities" EntitySet="HallActivities" />
+            <End Role="HallInfo" EntitySet="HallInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="MyHallFacilities" Association="Self.MyHallFacilities">
+            <End Role="HallFacilities" EntitySet="HallFacilities" />
+            <End Role="HallInfo" EntitySet="HallInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="MyHallTypes" Association="Self.MyHallTypes">
+            <End Role="HallInfo" EntitySet="HallInfoes" />
+            <End Role="HallType" EntitySet="HallTypes" />
+          </AssociationSet>
+          <EntitySet Name="CarInfoes" EntityType="Taqreeb_FYPModel.CarInfo" />
+          <AssociationSet Name="FK_CarInfo_AspNetUsers" Association="Taqreeb_FYPModel.FK_CarInfo_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="CarInfo" EntitySet="CarInfoes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CarInfo">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorInfoID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RegNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <Property Name="Doors" Type="Int32" />
+          <Property Name="Transmission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AC" Type="Boolean" />
+          <NavigationProperty Name="AspNetUser" Relationship="Taqreeb_FYPModel.FK_CarInfo_AspNetUsers" FromRole="CarInfo" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_CarInfo_AspNetUsers">
+          <End Type="Taqreeb_FYPModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Taqreeb_FYPModel.CarInfo" Role="CarInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarInfo">
+              <PropertyRef Name="VendorInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Taqreeb_FYPModelStoreContainer" CdmEntityContainer="Taqreeb_FYPEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Hometown" ColumnName="Hometown" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTypes">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.EventType">
+              <MappingFragment StoreEntitySet="EventTypes">
+                <ScalarProperty Name="EventTypeID" ColumnName="EventTypeID" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallActivities">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.HallActivity">
+              <MappingFragment StoreEntitySet="HallActivities">
+                <ScalarProperty Name="HallActivityID" ColumnName="HallActivityID" />
+                <ScalarProperty Name="HallActivityName" ColumnName="HallActivityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallAddresses">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.HallAddress">
+              <MappingFragment StoreEntitySet="HallAddress">
+                <ScalarProperty Name="HallInfolD" ColumnName="HallInfolD" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallCapacities">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.HallCapacity">
+              <MappingFragment StoreEntitySet="HallCapacity">
+                <ScalarProperty Name="HallInfoID" ColumnName="HallInfoID" />
+                <ScalarProperty Name="StandingCapacity" ColumnName="StandingCapacity" />
+                <ScalarProperty Name="Seated" ColumnName="Seated" />
+                <ScalarProperty Name="ClassRoomCapacity" ColumnName="ClassRoomCapacity" />
+                <ScalarProperty Name="ThreatreCapacity" ColumnName="ThreatreCapacity" />
+                <ScalarProperty Name="BanquetCapacity" ColumnName="BanquetCapacity" />
+                <ScalarProperty Name="ConferanceCapacity" ColumnName="ConferanceCapacity" />
+                <ScalarProperty Name="UShapeCapacity" ColumnName="UShapeCapacity" />
+                <ScalarProperty Name="AdditionalInfoCapacity" ColumnName="AdditionalInfoCapacity" />
+                <ScalarProperty Name="FloorArea" ColumnName="FloorArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallFacilities">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.HallFacility">
+              <MappingFragment StoreEntitySet="HallFacilities">
+                <ScalarProperty Name="HallFacilityID" ColumnName="HallFacilityID" />
+                <ScalarProperty Name="HallFacilityType" ColumnName="HallFacilityType" />
+                <ScalarProperty Name="HallFacilityName" ColumnName="HallFacilityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallInfoes">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.HallInfo">
+              <MappingFragment StoreEntitySet="HallInfo">
+                <ScalarProperty Name="HallInfoID" ColumnName="HallInfoID" />
+                <ScalarProperty Name="VendorInfoID" ColumnName="VendorInfoID" />
+                <ScalarProperty Name="HallName" ColumnName="HallName" />
+                <ScalarProperty Name="HallMapLocation" ColumnName="HallMapLocation" />
+                <ScalarProperty Name="HallDescription" ColumnName="HallDescription" />
+                <ScalarProperty Name="HallShortDescription" ColumnName="HallShortDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallTypes">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.HallType">
+              <MappingFragment StoreEntitySet="HallType">
+                <ScalarProperty Name="HallTypeID" ColumnName="HallTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageDemoes">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.ImageDemo">
+              <MappingFragment StoreEntitySet="ImageDemo">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="HallImage" ColumnName="HallImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyHallPricings">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.MyHallPricing">
+              <MappingFragment StoreEntitySet="MyHallPricing">
+                <ScalarProperty Name="HallInfoID" ColumnName="HallInfoID" />
+                <ScalarProperty Name="PricePerPerson" ColumnName="PricePerPerson" />
+                <ScalarProperty Name="RentPerHour" ColumnName="RentPerHour" />
+                <ScalarProperty Name="AdditionalPricingInfo" ColumnName="AdditionalPricingInfo" />
+                <ScalarProperty Name="ReservationDeposit" ColumnName="ReservationDeposit" />
+                <ScalarProperty Name="CleaningFee" ColumnName="CleaningFee" />
+                <ScalarProperty Name="CancellationPolicy" ColumnName="CancellationPolicy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorAddresses">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.VendorAddress">
+              <MappingFragment StoreEntitySet="VendorAddress">
+                <ScalarProperty Name="VendorInfoID" ColumnName="VendorInfoID" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Taqreeb_FYPModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="HallEvents" TypeName="Taqreeb_FYPModel.HallEvents" StoreEntitySet="HallEvents">
+            <EndProperty Name="EventTypes">
+              <ScalarProperty Name="EventTypeID" ColumnName="EventTypeID" />
+            </EndProperty>
+            <EndProperty Name="HallInfo">
+              <ScalarProperty Name="HallInfoID" ColumnName="HallInfoID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MyHallActivities" TypeName="Taqreeb_FYPModel.MyHallActivities" StoreEntitySet="MyHallActivities">
+            <EndProperty Name="HallActivities">
+              <ScalarProperty Name="HallActivityID" ColumnName="HallActivityID" />
+            </EndProperty>
+            <EndProperty Name="HallInfo">
+              <ScalarProperty Name="HallInfoID" ColumnName="HallInfoID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MyHallFacilities" TypeName="Taqreeb_FYPModel.MyHallFacilities" StoreEntitySet="MyHallFacilities">
+            <EndProperty Name="HallFacilities">
+              <ScalarProperty Name="HallFacilityID" ColumnName="HallFacilityID" />
+            </EndProperty>
+            <EndProperty Name="HallInfo">
+              <ScalarProperty Name="HallInfoID" ColumnName="HallInfoID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MyHallTypes" TypeName="Taqreeb_FYPModel.MyHallTypes" StoreEntitySet="MyHallTypes">
+            <EndProperty Name="HallInfo">
+              <ScalarProperty Name="HallInfoID" ColumnName="HallInfoID" />
+            </EndProperty>
+            <EndProperty Name="HallType">
+              <ScalarProperty Name="HallTypeID" ColumnName="HallTypeID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="CarInfoes">
+            <EntityTypeMapping TypeName="Taqreeb_FYPModel.CarInfo">
+              <MappingFragment StoreEntitySet="CarInfo">
+                <ScalarProperty Name="AC" ColumnName="AC" />
+                <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+                <ScalarProperty Name="Doors" ColumnName="Doors" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+                <ScalarProperty Name="VendorInfoID" ColumnName="VendorInfoID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

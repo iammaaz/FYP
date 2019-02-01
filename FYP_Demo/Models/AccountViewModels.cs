@@ -70,6 +70,14 @@ namespace FYP_Demo.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -84,6 +92,10 @@ namespace FYP_Demo.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        
+        
+        [Display(Name = "UserRoles")]
+        public String UserRoles { get; set; }
 
         [Display(Name = "Hometown")]
         public string Hometown { get; set; }

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FYP_Demo.HallInfo>
+
+@{
+    ViewBag.Title = "GetVenues";
+    Layout = "~/Views/Shared/_ListyLayout.cshtml";
+}
+
+<h2>GetVenues</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HallName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HallMapLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HallDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HallShortDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Hometown)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HallAddress.StreetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HallCapacity.AdditionalInfoCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MyHallPricing.AdditionalPricingInfo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HallName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HallMapLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HallDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HallShortDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Hometown)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HallAddress.StreetAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HallCapacity.AdditionalInfoCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MyHallPricing.AdditionalPricingInfo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HallInfoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HallInfoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HallInfoID })
+        </td>
+    </tr>
+}
+
+</table>

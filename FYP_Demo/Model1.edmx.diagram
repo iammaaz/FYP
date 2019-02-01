@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9682fc4cbfbd437eb63a125f4db01acd" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.AspNetRole" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.AspNetUser" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.EventType" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.HallActivity" Width="1.5" PointX="6" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.HallAddress" Width="1.5" PointX="10.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.HallCapacity" Width="1.5" PointX="10.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.HallFacility" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.HallInfo" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.HallType" Width="1.5" PointX="10.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.ImageDemo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.MyHallPricing" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.VendorAddress" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <AssociationConnector Association="Taqreeb_FYPModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.FK_HallInfo_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.FK_VendorAddress_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.FK_HallAddress_HallInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.FK_HallCapacity_HallInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.FK_MyHallPricing_HallInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.HallEvents" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.MyHallActivities" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.MyHallFacilities" ManuallyRouted="false" />
+        <AssociationConnector Association="Taqreeb_FYPModel.MyHallTypes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Taqreeb_FYPModel.CarInfo" Width="1.5" PointX="5.25" PointY="19.375" />
+        <AssociationConnector Association="Taqreeb_FYPModel.FK_CarInfo_AspNetUsers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

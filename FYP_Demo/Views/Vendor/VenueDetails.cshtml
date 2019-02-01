@@ -1,0 +1,303 @@
+﻿@model FYP_Demo.HallInfo
+
+@{
+    ViewBag.Title = "VenueDetails";
+    Layout = "~/Views/Shared/_ListyLayout.cshtml";
+}
+
+@*<h2>VenueDetails</h2>
+
+    <div>
+        <h4>HallInfo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.HallName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HallName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HallMapLocation)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HallMapLocation)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HallDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HallDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HallShortDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HallShortDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AspNetUser.Hometown)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AspNetUser.Hometown)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HallAddress.StreetAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HallAddress.StreetAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HallCapacity.AdditionalInfoCapacity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HallCapacity.AdditionalInfoCapacity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MyHallPricing.AdditionalPricingInfo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MyHallPricing.AdditionalPricingInfo)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.HallInfoID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+<!-- Dashboard Header -->
+@Html.Partial("_PartialDashboard")
+
+<!-- LISTINGS DETAILS TITLE SECTION -->
+<section class="clearfix paddingAdjustBottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="listingTitleArea">
+                    <h2>@Html.DisplayFor(m=>m.HallName) </h2>
+                    <p>@Html.DisplayFor(m => m.HallAddress.StreetAddress) <br>@Html.DisplayFor(m => m.HallAddress.City) </p>
+                    <div class="listingReview">
+                        <ul class="list-inline rating">
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                        </ul>
+                        <span>( 5 Reviews )</span>
+                        <ul class="list-inline captionItem">
+                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
+                        </ul>
+                                <a href="#" class="btn btn-primary">Add review</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- LISTINGS DETAILS IMAGE SECTION -->
+<section class="clearfix paddingAdjustTopBottom">
+    <ul class="list-inline listingImage">
+        <li><img src="~/img/listing/listing-details-1.jpg" alt="Image Listing" class="img-responsive"></li>
+        <li><img src="~/img/listing/listing-details-2.jpg" alt="Image Listing" class="img-responsive"></li>
+        <li><img src="~/img/listing/listing-details-3.jpg" alt="Image Listing" class="img-responsive"></li>
+        <li><img src="~/img/listing/listing-details-4.jpg" alt="Image Listing" class="img-responsive"></li>
+    </ul>
+</section>
+<!-- LISTINGS DETAILS INFO SECTION -->
+<section class="clearfix paddingAdjustTop">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="listDetailsInfo">
+                    <div class="detailsInfoBox">
+                        <h3>About This Venue</h3>
+                        <p>@Html.DisplayFor(m => m.HallDescription) </p>
+                        <h3>Capacity</h3>
+                        <p>Standing Capacity:@Html.DisplayFor(m => m.HallCapacity.StandingCapacity)</p>
+                        <p>Seated Capacity:@Html.DisplayFor(m => m.HallCapacity.Seated)</p>
+                        <hr />
+                        <h3>Pricing</h3>
+                        <p>Pricing per hour:@Html.DisplayFor(m => m.MyHallPricing.RentPerHour)</p>
+                        <p>pricing per night:@Html.DisplayFor(m => m.MyHallPricing.RentPerHour)</p>
+                    </div>
+                    <div class="detailsInfoBox">
+                        <h3>Features</h3>
+                        <ul class="list-inline featuresItems">
+                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Wi-Fi</li>
+                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Street Parking</li>
+                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Alcohol</li>
+                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Vegetarian</li>
+                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Reservations</li>
+                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Pets Friendly</li>
+                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Accept Credit Card</li>
+                        </ul>
+                    </div>
+                    <div class="detailsInfoBox">
+                        <h3>Reviews (3)</h3>
+                        <div class="media media-comment">
+                            <div class="media-left">
+                                <img src="~/img/listing/list-user-1.jpg" class="media-object img-circle" alt="Image User">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Jessica Brown</h4>
+                                <ul class="list-inline rating">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </ul>
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan
+                                    totam rem ape riam,
+                                </p>
+                            </div>
+                        </div>
+                        <div class="media media-comment">
+                            <div class="media-left">
+                                <img src="img/listing/list-user-2.jpg" class="media-object img-circle" alt="Image User">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Jessica Brown</h4>
+                                <ul class="list-inline rating">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                </ul>
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan
+                                    totam rem ape riam,
+                                </p>
+                            </div>
+                        </div>
+                        <div class="media media-comment">
+                            <div class="media-left">
+                                <img src="img/listing/list-user-3.jpg" class="media-object img-circle" alt="Image User">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Jessica Brown</h4>
+                                <ul class="list-inline rating">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                </ul>
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan
+                                    totam rem ape riam,
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detailsInfoBox">
+                        <h3>Write A Review </h3>
+                        <div class="listingReview">
+                            <span>( 5 Reviews )</span>
+                            <ul class="list-inline rating rating-review">
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            </ul>
+                        </div>
+                        <form action="#">
+                            <div class="formSection formSpace">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
+                                </div>
+                                <div class="form-group mb0">
+                                    <button type="submit" class="btn btn-primary">Send Review</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="clearfix map-sidebar map-right pull-left mt20">
+                            <div id="map" style="position:relative; margin: 0;padding: 0;height: 538px; max-width: none;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="listSidebar pull-left mt20">
+                            <h3>Location</h3>
+                            <div class="contactInfo">
+                                <ul class="list-unstyled list-address">
+                                    <li>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        16/14 Babor Road, Mohammad pur <br> Dhaka, Bangladesh
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                        +55 654 545 122 <br> +55 654 545 123
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <a href="#">info@example.com</a> <a href="#">info@startravelbangladesh.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="listSidebar pull-left mt20">
+                            <h3>Opening Hours</h3>
+                            <ul class="list-unstyled sidebarList">
+                                <li>
+                                    <span class="pull-left">Monday</span>
+                                    <span class="pull-right">08.00am - 05.00pm</span>
+                                </li>
+                                <li>
+                                    <span class="pull-left">Tuesday</span>
+                                    <span class="pull-right">08.00am - 05.00pm</span>
+                                </li>
+                                <li>
+                                    <span class="pull-left">Wednesday</span>
+                                    <span class="pull-right">08.00am - 05.00pm</span>
+                                </li>
+                                <li>
+                                    <span class="pull-left">Thrusday</span>
+                                    <span class="pull-right">08.00am - 05.00pm</span>
+                                </li>
+                                <li>
+                                    <span class="pull-left">Friday</span>
+                                    <span class="pull-right">08.00am - 05.00pm</span>
+                                </li>
+                                <li>
+                                    <span class="pull-left">Saturday</span>
+                                    <span class="pull-right"><a href="#">Closed</a></span>
+                                </li>
+                                <li>
+                                    <span class="pull-left">Sunday</span>
+                                    <span class="pull-right"><a href="#">Closed</a></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
