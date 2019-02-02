@@ -11,7 +11,8 @@ namespace FYP_Demo
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class HallInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -42,5 +43,17 @@ namespace FYP_Demo
         public virtual ICollection<HallFacility> HallFacilities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HallType> HallTypes { get; set; }
+
+        [NotMapped]
+        public IEnumerable<int> HallTypeSelectedIDs { get; set; }
+
+        [NotMapped]
+        public IEnumerable<int> HallEventTypeSelectedIDs { get; set; }
+
+        [NotMapped]
+        public IEnumerable<int> HallActivitiesSelectedIDs { get; set; }
+
+        [NotMapped]
+        public IEnumerable<int> HallFacilitySelectedIDs { get; set; }
     }
 }
