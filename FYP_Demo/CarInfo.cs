@@ -18,7 +18,7 @@ namespace FYP_Demo
         public string VendorInfoID { get; set; }
         public string RegNo { get; set; }
         public string Manufacturer { get; set; }
-        public string model { get; set; }
+        public string modelNumber { get; set; }
         public int Capacity { get; set; }
         public Nullable<int> Doors { get; set; }
         public string Transmission { get; set; }

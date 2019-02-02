@@ -12,11 +12,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2>Submit Listings</h2>
+                <h2>Rent a car</h2>
                 <ol class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
-                    <li class="active">Submit Listings</li>
+                    <li class="active">Submit Car Details</li>
                 </ol>
             </div>
         </div>
@@ -35,10 +35,11 @@
 
                     <div class="dashboardBoxBg mb30">
                         <div class="profileIntro paraMargin">
-                            <h3>About</h3>
+                            <h3>Enter details</h3>
                             <div class="row">
+                                @Html.HiddenFor(model=>model.CarID)
                                 <div class="form-group col-md-5">
-                                    @Html.LabelFor(model => model.RegNo)
+                                    @Html.Label("Registeration #")
                                     @Html.EditorFor(model => model.RegNo, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.RegNo, "", new { @class = "text-danger" })
                                 </div>
@@ -53,10 +54,10 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-5">
-                                    @Html.LabelFor(model => model.model)
+                                    @Html.LabelFor(model => model.modelNumber)
 
-                                    @Html.EditorFor(model => model.model, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.model, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.modelNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.modelNumber, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>

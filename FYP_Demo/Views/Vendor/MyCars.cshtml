@@ -1,0 +1,120 @@
+﻿@model IEnumerable<FYP_Demo.CarInfo>
+
+@{
+    ViewBag.Title = "MyListing";
+    Layout = "~/Views/Shared/_ListyLayout.cshtml";
+}
+<!-- Dashboard Header -->
+@Html.Partial("_PartialDashboard")
+
+<!-- LISTINGS SECTION -->
+<section class="clearfix bg-dark listyPage">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="dashboardPageTitle">
+                    <h2>My cars for rent</h2>
+                </div>
+                <div class="table-responsive" data-pattern="priority-columns">
+                    <table class="table listingsTable">
+                        <thead>
+                            <tr class="rowItem">
+                                <th data-priority="">Listings</th>
+                                <th data-priority="1">Featured</th>
+                                <th data-priority="6">Views</th>
+                                <th data-priority="2">Reviews</th>
+                                <th data-priority="3">Posted on</th>
+                                <th data-priority="4">Last Edited</th>
+                                <th data-priority="5">Status</th>
+                                <th data-priority="7">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (CarInfo item in Model)
+                            {
+                                <tr class="rowItem">
+                                    <td>
+                                        <ul class="list-inline listingsInfo">
+                                            <li><a href="@Url.Action("CarDetails","Vendor", new { id= item.CarID })"><img src="~/img/cars/car-1.jpg" alt="Image Listings"></a></li>
+                                            <li>
+                                                <h3> @item.modelNumber.ToString() <i class="fa fa-check-circle" aria-hidden="true"></i></h3>
+                                                <h5>@item.Manufacturer.ToString() <span class="cityName">- @item.Transmission</span></h5>
+                                                <span class="category">Sendan</span>
+                                                <p>Capacity : @item.Capacity.ToString() person <span class="likeArea"><i class="fa fa-heart-o" aria-hidden="true"></i>15k</span></p>
+                                                <p>Air-Conditioned : @item.AC</p>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td><i class="fa fa-check primaryColor" aria-hidden="true"></i></td>
+                                    <td>784</td>
+                                    <td>
+                                        <ul class="list-inline rating">
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                            <li>(7)</li>
+                                        </ul>
+                                    </td>
+                                    <td>28/02/2018 <br>9.15am</td>
+                                    <td>Today <br>11.00am</td>
+                                    <td><span class="label label-success">Active</span></td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "AddCar", new { id = item.CarID }) |
+                                        @Html.ActionLink("Details", "CarDetails", new { id = item.CarID }) |
+                                        @Html.ActionLink("Delete", "DeleteCar", new { id = item.CarID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paginationCommon blogPagination text-center">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+

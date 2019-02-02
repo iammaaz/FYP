@@ -19,12 +19,62 @@ namespace FYP_Demo.Controllers
         {
             return View();
         }
-
-        public ActionResult AddCar()
+        //Car Add and Update
+        public ActionResult AddCar(int id = 0)
         {
+            CarInfo car = new CarInfo();
+            if (id != 0)
+            {
+               car = context.CarInfoes.Find(id);
+                return View(car);
+            }
             return View();
         }
-        
+
+        [HttpPost]
+        public ActionResult AddCar(CarInfo car)
+        {
+            //Get Vendor ID
+            car.VendorInfoID = User.Identity.GetUserId();
+            
+
+            if (car.CarID == 0)
+            {
+                context.CarInfoes.Add(car);
+
+            }
+            else
+            {
+                context.Entry(car).State = EntityState.Modified;
+            }
+
+            context.SaveChanges();
+
+            //ViewBag.msg = "Venue added successfully";
+            //return View(hall);
+            return RedirectToAction("AddCar", new { id = 0 });
+        }
+
+        public ActionResult MyCars()
+        {
+            //HallInfo hall = new HallInfo();
+            //hall = context.HallInfoes.Find(id);
+            ////return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
+            //return View(hall);
+            var userID = User.Identity.GetUserId();
+            return View(from CarInfo in context.CarInfoes
+                        where CarInfo.VendorInfoID.Equals(userID)
+                        select CarInfo);
+        }
+
+        public ActionResult CarDetails(int id)
+        {
+            CarInfo car = new CarInfo();
+            car = context.CarInfoes.Find(id);
+            //return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
+            return View(car);
+        }
+
         public ActionResult AddVenue(int id = 0)
         {
             VenueViewModel viewModel = new VenueViewModel();

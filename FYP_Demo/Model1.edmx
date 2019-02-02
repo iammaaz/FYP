@@ -77,7 +77,7 @@
           <Property Name="VendorInfoID" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="RegNo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modelNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Capacity" Type="int" Nullable="false" />
           <Property Name="Doors" Type="int" />
           <Property Name="Transmission" Type="nvarchar" MaxLength="50" />
@@ -953,7 +953,7 @@
           <Property Name="VendorInfoID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="RegNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modelNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Capacity" Type="Int32" Nullable="false" />
           <Property Name="Doors" Type="Int32" />
           <Property Name="Transmission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1200,7 +1200,7 @@
                 <ScalarProperty Name="Transmission" ColumnName="Transmission" />
                 <ScalarProperty Name="Doors" ColumnName="Doors" />
                 <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="modelNumber" ColumnName="modelNumber" />
                 <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
                 <ScalarProperty Name="RegNo" ColumnName="RegNo" />
                 <ScalarProperty Name="VendorInfoID" ColumnName="VendorInfoID" />

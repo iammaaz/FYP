@@ -602,6 +602,8 @@
     <Content Include="Views\Home\AddImage.cshtml" />
     <Content Include="Views\ListyHome\ExploreVenues.cshtml" />
     <Content Include="Views\Vendor\AddCar.cshtml" />
+    <Content Include="Views\Vendor\MyCars.cshtml" />
+    <Content Include="Views\Vendor\CarDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
