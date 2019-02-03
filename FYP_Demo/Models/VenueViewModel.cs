@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace FYP_Demo.Models
 {
-    public class VenueViewModel
+    public class VenueViewModel 
     {
         public HallInfo Hall { get; set; }
 

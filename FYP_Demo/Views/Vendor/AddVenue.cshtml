@@ -1,4 +1,4 @@
-﻿@model FYP_Demo.Models.VenueViewModel
+﻿@model FYP_Demo.HallInfo
 @{
     ViewBag.Title = "AddVenue";
     Layout = "~/Views/Shared/_ListyLayout.cshtml";
@@ -37,51 +37,51 @@
                         <div class="profileIntro paraMargin">
                             <h3>About</h3>
                             <p>We are not responsible for any damages caused by the use of this website, or by posting business listings here. Please use our site at your own discretion and exercise good judgement as well as common sense when advertising business here.</p>
-
+                            @Html.HiddenFor(model => model.HallInfoID)
                             <div class="row">
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Hall.HallName)
-                                    @Html.EditorFor(model => model.Hall.HallName, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallName, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.HallName)
+                                    @Html.EditorFor(model => model.HallName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HallName, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-4">
-                                        @Html.LabelFor(model => model.Hall.HallAddress.StreetAddress)
-                                        @Html.EditorFor(model => model.Hall.HallAddress.StreetAddress, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Hall.HallAddress.StreetAddress, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.HallAddress.StreetAddress)
+                                        @Html.EditorFor(model => model.HallAddress.StreetAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HallAddress.StreetAddress, "", new { @class = "text-danger" })
 
                                     </div>
                                     <div class="form-group col-md-2">
-                                        @Html.LabelFor(model => model.Hall.HallAddress.ZipCode)
-                                        @Html.EditorFor(model => model.Hall.HallAddress.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Hall.HallAddress.ZipCode, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.HallAddress.ZipCode)
+                                        @Html.EditorFor(model => model.HallAddress.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HallAddress.ZipCode, "", new { @class = "text-danger" })
 
                                     </div>
                                     <div class="form-group  col-md-3">
-                                        @Html.LabelFor(model => model.Hall.HallAddress.City)
-                                        @Html.EditorFor(model => model.Hall.HallAddress.City, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Hall.HallAddress.City, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.HallAddress.City)
+                                        @Html.EditorFor(model => model.HallAddress.City, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HallAddress.City, "", new { @class = "text-danger" })
 
                                     </div>
                                     <div class="form-group  col-md-3">
-                                        @Html.LabelFor(model => model.Hall.HallAddress.Country)
-                                        @Html.EditorFor(model => model.Hall.HallAddress.Country, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Hall.HallAddress.Country, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.HallAddress.Country)
+                                        @Html.EditorFor(model => model.HallAddress.Country, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HallAddress.Country, "", new { @class = "text-danger" })
 
                                     </div>
 
                                 </div>
                                 
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Hall.HallDescription)
-                                    @Html.EditorFor(model => model.Hall.HallDescription, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallDescription, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.HallDescription)
+                                    @Html.EditorFor(model => model.HallDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HallDescription, "", new { @class = "text-danger" })
 
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Hall.HallShortDescription)
-                                    @Html.EditorFor(model => model.Hall.HallShortDescription, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallShortDescription, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.HallShortDescription)
+                                    @Html.EditorFor(model => model.HallShortDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HallShortDescription, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
@@ -96,16 +96,16 @@
                             <div class="row">
 
                                 <div class="form-group col-md-6">
-                                    @Html.LabelFor(model => model.Hall.HallCapacity.StandingCapacity)
+                                    @Html.LabelFor(model => model.HallCapacity.StandingCapacity)
 
-                                    @Html.EditorFor(model => model.Hall.HallCapacity.StandingCapacity, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallCapacity.StandingCapacity, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.HallCapacity.StandingCapacity, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HallCapacity.StandingCapacity, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    @Html.LabelFor(model => model.Hall.HallCapacity.Seated)
-                                    @Html.EditorFor(model => model.Hall.HallCapacity.Seated, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallCapacity.Seated, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.HallCapacity.Seated)
+                                    @Html.EditorFor(model => model.HallCapacity.Seated, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HallCapacity.Seated, "", new { @class = "text-danger" })
 
                                 </div>
                                 <h3>Capacity Details</h3>
@@ -113,39 +113,39 @@
                                 <hr />
                                 <div class="row">
                                     <div class="form-group col-md-3">
-                                        @Html.LabelFor(model => model.Hall.HallCapacity.ClassRoomCapacity)
-                                        @Html.EditorFor(model => model.Hall.HallCapacity.ThreatreCapacity, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Hall.HallCapacity.ThreatreCapacity, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.HallCapacity.ClassRoomCapacity)
+                                        @Html.EditorFor(model => model.HallCapacity.ThreatreCapacity, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HallCapacity.ThreatreCapacity, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group col-md-3">
-                                        @Html.LabelFor(model => model.Hall.HallCapacity.BanquetCapacity)
-                                        @Html.EditorFor(model => model.Hall.HallCapacity.BanquetCapacity, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Hall.HallCapacity.BanquetCapacity, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.HallCapacity.BanquetCapacity)
+                                        @Html.EditorFor(model => model.HallCapacity.BanquetCapacity, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HallCapacity.BanquetCapacity, "", new { @class = "text-danger" })
 
                                     </div>
                                     <div class="form-group col-md-3">
-                                        @Html.LabelFor(model => model.Hall.HallCapacity.ConferanceCapacity)
-                                        @Html.EditorFor(model => model.Hall.HallCapacity.ConferanceCapacity, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Hall.HallCapacity.ConferanceCapacity, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.HallCapacity.ConferanceCapacity)
+                                        @Html.EditorFor(model => model.HallCapacity.ConferanceCapacity, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HallCapacity.ConferanceCapacity, "", new { @class = "text-danger" })
 
                                     </div>
                                     <div class="form-group col-md-3">
-                                        @Html.LabelFor(model => model.Hall.HallCapacity.UShapeCapacity)
-                                        @Html.EditorFor(model => model.Hall.HallCapacity.UShapeCapacity, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Hall.HallCapacity.UShapeCapacity, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.HallCapacity.UShapeCapacity)
+                                        @Html.EditorFor(model => model.HallCapacity.UShapeCapacity, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HallCapacity.UShapeCapacity, "", new { @class = "text-danger" })
 
                                     </div>
                                 </div>
                                 
                                 <div class="form-group col-xs-12">
-                                    @Html.LabelFor(model => model.Hall.HallCapacity.AdditionalInfoCapacity)
-                                    @Html.EditorFor(model => model.Hall.HallCapacity.AdditionalInfoCapacity, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallCapacity.AdditionalInfoCapacity, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.HallCapacity.AdditionalInfoCapacity)
+                                    @Html.EditorFor(model => model.HallCapacity.AdditionalInfoCapacity, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HallCapacity.AdditionalInfoCapacity, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group col-md-4">
-                                    @Html.LabelFor(model => model.Hall.HallCapacity.FloorArea)
-                                    @Html.EditorFor(model => model.Hall.HallCapacity.FloorArea, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallCapacity.FloorArea, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.HallCapacity.FloorArea)
+                                    @Html.EditorFor(model => model.HallCapacity.FloorArea, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HallCapacity.FloorArea, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
@@ -157,9 +157,9 @@
                             <p>Select your Hall type</p>
                             <div class="row">
                                 <div class="form-group">
-                                    @Html.ListBoxFor(model => model.HallTypeSelectedIDs, new MultiSelectList(Model.Hall.HallTypes, "HallTypeID", "Name"), htmlAttributes: new { @class = "form-control normalDropdown" })
+                                    @Html.ListBoxFor(model => model.HallTypeSelectedIDs, new MultiSelectList(Model.HallTypes, "HallTypeID", "Name"), htmlAttributes: new { @class = "form-control normalDropdown" })
                                     @*@Html.ListBoxFor(model => model.HallTypes, (MultiSelectList)ViewBag.HallTypes, htmlAttributes: new { @class = "form-control" })*@
-                                    @Html.ValidationMessageFor(model => model.Hall.HallTypes, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.HallTypes, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
@@ -170,9 +170,9 @@
                             <h3>Facilities</h3>
                             <div class="row">
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Hall.HallFacilities)
-                                    @Html.ListBoxFor(model => model.HallFacilitySelectedIDs, new MultiSelectList(Model.Hall.HallFacilities, "HallFacilityID", "HallFacilityName"), htmlAttributes: new { @class = "form-control normalDropdown" })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallFacilities, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.HallFacilities)
+                                    @Html.ListBoxFor(model => model.HallFacilitySelectedIDs, new MultiSelectList(Model.HallFacilities, "HallFacilityID", "HallFacilityName"), htmlAttributes: new { @class = "form-control normalDropdown" })
+                                    @Html.ValidationMessageFor(model => model.HallFacilities, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
@@ -184,9 +184,9 @@
                             <p>Choose type of events that can arrange in your Venue</p>
                             <div class="row">
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Hall.EventTypes)
-                                    @Html.ListBoxFor(model => model.HallEventTypeSelectedIDs, new MultiSelectList(Model.Hall.EventTypes, "EventTypeID", "EventName"), htmlAttributes: new { @class = "form-control normalDropdown" })
-                                    @Html.ValidationMessageFor(model => model.Hall.EventTypes, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.EventTypes)
+                                    @Html.ListBoxFor(model => model.HallEventTypeSelectedIDs, new MultiSelectList(Model.EventTypes, "EventTypeID", "EventName"), htmlAttributes: new { @class = "form-control normalDropdown" })
+                                    @Html.ValidationMessageFor(model => model.EventTypes, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
@@ -197,9 +197,9 @@
                             <h3>Activites</h3>
                             <div class="row">
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Hall.HallActivities)
-                                    @Html.ListBoxFor(model => model.HallActivitiesSelectedIDs, new MultiSelectList(Model.Hall.HallActivities, "HallActivityID", "HallActivityName"), htmlAttributes: new { @class = "form-control normalDropdown" })
-                                    @Html.ValidationMessageFor(model => model.Hall.HallActivities, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.HallActivities)
+                                    @Html.ListBoxFor(model => model.HallActivitiesSelectedIDs, new MultiSelectList(Model.HallActivities, "HallActivityID", "HallActivityName"), htmlAttributes: new { @class = "form-control normalDropdown" })
+                                    @Html.ValidationMessageFor(model => model.HallActivities, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
@@ -212,51 +212,51 @@
                             <p>Price information is not binding, and can be negotiated separately with each customer. BUT NOTE: Even preliminary information on pricing significantly helps the work of event planners. In addition, we have noticed that those who openly state their rates will have significantly more customers.</p>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    @Html.LabelFor(model => model.Hall.MyHallPricing.PricePerPerson)
+                                    @Html.LabelFor(model => model.MyHallPricing.PricePerPerson)
 
-                                    @Html.EditorFor(model => model.Hall.MyHallPricing.PricePerPerson, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.MyHallPricing.PricePerPerson, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MyHallPricing.PricePerPerson, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MyHallPricing.PricePerPerson, "", new { @class = "text-danger" })
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    @Html.LabelFor(model => model.Hall.MyHallPricing.RentPerHour)
+                                    @Html.LabelFor(model => model.MyHallPricing.RentPerHour)
 
-                                    @Html.EditorFor(model => model.Hall.MyHallPricing.RentPerHour, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.MyHallPricing.RentPerHour, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MyHallPricing.RentPerHour, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MyHallPricing.RentPerHour, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    @Html.LabelFor(model => model.Hall.MyHallPricing.AdditionalPricingInfo)
+                                    @Html.LabelFor(model => model.MyHallPricing.AdditionalPricingInfo)
 
-                                    @Html.EditorFor(model => model.Hall.MyHallPricing.AdditionalPricingInfo, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.MyHallPricing.AdditionalPricingInfo, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MyHallPricing.AdditionalPricingInfo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MyHallPricing.AdditionalPricingInfo, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    @Html.LabelFor(model => model.Hall.MyHallPricing.ReservationDeposit)
-                                    @Html.EditorFor(model => model.Hall.MyHallPricing.ReservationDeposit, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.MyHallPricing.ReservationDeposit, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.MyHallPricing.ReservationDeposit)
+                                    @Html.EditorFor(model => model.MyHallPricing.ReservationDeposit, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MyHallPricing.ReservationDeposit, "", new { @class = "text-danger" })
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    @Html.LabelFor(model => model.Hall.MyHallPricing.CleaningFee)
+                                    @Html.LabelFor(model => model.MyHallPricing.CleaningFee)
 
-                                    @Html.EditorFor(model => model.Hall.MyHallPricing.CleaningFee, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.MyHallPricing.CleaningFee, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MyHallPricing.CleaningFee, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MyHallPricing.CleaningFee, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    @Html.LabelFor(model => model.Hall.MyHallPricing.CancellationPolicy)
+                                    @Html.LabelFor(model => model.MyHallPricing.CancellationPolicy)
 
-                                    @Html.EditorFor(model => model.Hall.MyHallPricing.CancellationPolicy, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Hall.MyHallPricing.CancellationPolicy, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MyHallPricing.CancellationPolicy, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MyHallPricing.CancellationPolicy, "", new { @class = "text-danger" })
 
                                 </div>
                             </div>
