@@ -14,6 +14,7 @@ namespace FYP_Demo.Controllers
     {
 
         Taqreeb_FYPEntities context = new Taqreeb_FYPEntities();
+
         // GET: Vendor
         public ActionResult VendorPanel()
         {
@@ -22,12 +23,12 @@ namespace FYP_Demo.Controllers
         //Car Add and Update
         public ActionResult AddCar(int id = 0)
         {
-            CarInfo car = new CarInfo();
-            if (id != 0)
-            {
-               car = context.CarInfoes.Find(id);
-                return View(car);
-            }
+                CarInfo car = new CarInfo();
+                if (id != 0)
+                {
+                    car = context.CarInfoes.Find(id);
+                    return View(car);
+                }
             return View();
         }
 
@@ -36,19 +37,17 @@ namespace FYP_Demo.Controllers
         {
             //Get Vendor ID
             car.VendorInfoID = User.Identity.GetUserId();
-            
+                if (car.CarID == 0)
+                {
+                    context.CarInfoes.Add(car);
 
-            if (car.CarID == 0)
-            {
-                context.CarInfoes.Add(car);
+                }
+                else
+                {
+                    context.Entry(car).State = EntityState.Modified;
+                }
 
-            }
-            else
-            {
-                context.Entry(car).State = EntityState.Modified;
-            }
-
-            context.SaveChanges();
+                context.SaveChanges();
 
             //ViewBag.msg = "Venue added successfully";
             //return View(hall);
@@ -57,57 +56,52 @@ namespace FYP_Demo.Controllers
 
         public ActionResult MyCars()
         {
-            //HallInfo hall = new HallInfo();
-            //hall = context.HallInfoes.Find(id);
-            ////return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
-            //return View(hall);
-            var userID = User.Identity.GetUserId();
-            return View(from CarInfo in context.CarInfoes
-                        where CarInfo.VendorInfoID.Equals(userID)
-                        select CarInfo);
+                //HallInfo hall = new HallInfo();
+                //hall = context.HallInfoes.Find(id);
+                ////return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
+                //return View(hall);
+
+                var userID = User.Identity.GetUserId();
+                return View(from CarInfo in context.CarInfoes
+                            where CarInfo.VendorInfoID.Equals(userID)
+                            select CarInfo);
+            
         }
 
         public ActionResult CarDetails(int id)
         {
-            CarInfo car = new CarInfo();
-            car = context.CarInfoes.Find(id);
-            //return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
-            return View(car);
+
+                CarInfo car = new CarInfo();
+
+                car = context.CarInfoes.Find(id);
+                //return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
+                return View(car);
+            
         }
 
         [HttpGet]
         public ActionResult AddVenue(int id = 0)
         {
-            //VenueViewModel viewModel = new VenueViewModel();
-            //viewModel.Hall = new HallInfo();
+            
             HallInfo Hall = new HallInfo();
 
-            if (id != 0)
+            if (id != 0) //For Update:
             {
                 //hall = context.HallInfoes.Where(x => x.HallInfoID == id).FirstOrDefault();
                 Hall = context.HallInfoes.Find(id);
 
-                var query = from HallType in context.HallTypes
-                            from HallInfo in HallType.HallInfoes
-                            where HallInfo.HallInfoID == id
-                            select HallType.HallTypeID;
+                //var HallTypeIDs = from HallType in context.HallTypes
+                //            from HallInfo in HallType.HallInfoes
+                //            where HallInfo.HallInfoID == id
+                //            select HallType.HallTypeID;
+                //Hall.HallTypeSelectedIDs = HallTypeIDs.ToList();
 
-                //int[] arr = new int[] { 3, 4 };
-                Hall.HallTypeSelectedIDs = query.ToList();
-
-                //var query = context.HallTypes.Where(ht => ht.HallInfoes.Any(hi => hi.HallInfoID == id)).Select(i => i.HallTypeID).ToList();
-                //var query = hall.HallTypes.Where(h => h.HallInfoes == hall).Select(i => i.HallTypeID).ToList();
-
-                //var query = from ht in context.HallTypes
-                //            from hi in ht.HallInfoes
-                //            where hi.HallInfoID == id
-                //            select new { IdList = ht.HallTypeID };
-
+                PopulatingDropdownsForUpdate(Hall, id);
             }
 
-            Hall.HallTypes = context.HallTypes.ToList();
-            Hall.HallFacilities = context.HallFacilities.ToList();
-            Hall.EventTypes = context.EventTypes.ToList();
+                Hall.HallTypes = context.HallTypes.ToList();
+                Hall.HallFacilities = context.HallFacilities.ToList();
+                Hall.EventTypes = context.EventTypes.ToList();
             Hall.HallActivities = context.HallActivities.ToList();
 
             return View(Hall);
@@ -120,17 +114,20 @@ namespace FYP_Demo.Controllers
             //Insert Dropdowns Data
             InsertDropdownSelectedData(hall);
 
-            if (hall.HallInfoID == 0)
-            {
-                context.HallInfoes.Add(hall);
-                
-            }
-            else
-            {
-                context.Entry(hall).State = EntityState.Modified;
-            }
+           
+                if (hall.HallInfoID == 0)
+                {
+                    context.HallInfoes.Add(hall);
 
-            context.SaveChanges();
+                }
+                else
+                {
+                    context.Entry(hall).State = EntityState.Modified;
+                }
+
+                context.SaveChanges();
+            
+            
 
             ViewBag.msg = "Venue added successfully";
             //return View(hall);
@@ -144,58 +141,98 @@ namespace FYP_Demo.Controllers
             ////return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
             //return View(hall);
             var userID = User.Identity.GetUserId();
-            return View(from HallInfo in context.HallInfoes
-                        where HallInfo.VendorInfoID.Equals(userID) select HallInfo);
+            
+              var  query = from HallInfo in context.HallInfoes
+                            where HallInfo.VendorInfoID.Equals(userID)
+                            select HallInfo;
+                
+            
+            return View(query);
         }
 
         public ActionResult VenueDetails(int id)
         {
-            HallInfo hall = new HallInfo(); 
+            HallInfo hall = new HallInfo();
+            
                 hall = context.HallInfoes.Find(id);
-            //return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
-            return View(hall);
+                //return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
+                return View(hall);
+            
+               
         }
 
         [HttpPost]
         public ActionResult DeleteVenue(int id, HallInfo hall)
         {
+            
                 context.HallInfoes.Remove(context.HallInfoes.Find(id));
                 context.SaveChanges();
                 return RedirectToAction("MyListing");
+            
+                
         }
 
        
 
         public void InsertDropdownSelectedData(HallInfo hall)
         {
-            if (hall.HallTypeSelectedIDs != null)
-            {
-                foreach (var item in hall.HallTypeSelectedIDs)
+                if (hall.HallTypeSelectedIDs != null)
                 {
-                    hall.HallTypes.Add(context.HallTypes.Find(item));
+                    foreach (var item in hall.HallTypeSelectedIDs)
+                    {
+                        hall.HallTypes.Add(context.HallTypes.Find(item));
+                    }
                 }
-            }
-            if (hall.HallEventTypeSelectedIDs != null)
-            {
-                foreach (var item in hall.HallEventTypeSelectedIDs)
+                if (hall.HallEventTypeSelectedIDs != null)
                 {
-                    hall.EventTypes.Add(context.EventTypes.Find(item));
+                    foreach (var item in hall.HallEventTypeSelectedIDs)
+                    {
+                        hall.EventTypes.Add(context.EventTypes.Find(item));
+                    }
                 }
-            }
-            if (hall.HallActivitiesSelectedIDs != null)
-            {
-                foreach (var item in hall.HallActivitiesSelectedIDs)
+                if (hall.HallActivitiesSelectedIDs != null)
                 {
-                    hall.HallActivities.Add(context.HallActivities.Find(item));
+                    foreach (var item in hall.HallActivitiesSelectedIDs)
+                    {
+                        hall.HallActivities.Add(context.HallActivities.Find(item));
+                    }
                 }
-            }
-            if (hall.HallFacilitySelectedIDs != null)
-            {
-                foreach (var item in hall.HallFacilitySelectedIDs)
+                if (hall.HallFacilitySelectedIDs != null)
                 {
-                    hall.HallFacilities.Add(context.HallFacilities.Find(item));
+                    foreach (var item in hall.HallFacilitySelectedIDs)
+                    {
+                        hall.HallFacilities.Add(context.HallFacilities.Find(item));
+                    }
                 }
-            }
+            
+        }
+        public void PopulatingDropdownsForUpdate(HallInfo Hall, int id)
+        {
+            
+                //Getting hall Types
+                Hall.HallTypeSelectedIDs = context.HallTypes
+                    .Where(ht => ht.HallInfoes
+                    .Any(hi => hi.HallInfoID == id))
+                    .Select(i => i.HallTypeID).ToList();
+
+                //Getting hall Activities
+                Hall.HallActivitiesSelectedIDs = context.HallActivities
+                    .Where(ht => ht.HallInfoes
+                    .Any(hi => hi.HallInfoID == id))
+                    .Select(i => i.HallActivityID).ToList();
+
+                //getting Hall Events
+                Hall.HallEventTypeSelectedIDs = context.EventTypes
+                    .Where(ht => ht.HallInfoes
+                    .Any(hi => hi.HallInfoID == id))
+                    .Select(i => i.EventTypeID).ToList();
+
+
+                Hall.HallFacilitySelectedIDs = context.HallFacilities
+                    .Where(ht => ht.HallInfoes
+                    .Any(hi => hi.HallInfoID == id))
+                    .Select(i => i.HallFacilityID).ToList();
+            
         }
     }
 }
