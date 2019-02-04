@@ -102,7 +102,9 @@ namespace FYP_Demo.Controllers
                 Hall.HallTypes = context.HallTypes.ToList();
                 Hall.HallFacilities = context.HallFacilities.ToList();
                 Hall.EventTypes = context.EventTypes.ToList();
+
             Hall.HallActivities = context.HallActivities.ToList();
+
 
             return View(Hall);
         }
@@ -113,25 +115,27 @@ namespace FYP_Demo.Controllers
             hall.VendorInfoID = User.Identity.GetUserId();
             //Insert Dropdowns Data
             InsertDropdownSelectedData(hall);
+            
+            if (hall.HallInfoID == 0)
+            {
+                context.HallInfoes.Add(hall);
 
+            }
+            else
+            {
+                //context.Entry(hall).State = EntityState.Detached;
+                //context.ChangeTracker.DetectChanges();
+                context.Entry(hall).State = EntityState.Modified;
+                //context.HallInfoes.Attach(hall);
+                //context.ChangeTracker.DetectChanges();
+            }
+
+            context.SaveChanges();
+            
            
-                if (hall.HallInfoID == 0)
-                {
-                    context.HallInfoes.Add(hall);
-
-                }
-                else
-                {
-                    context.Entry(hall).State = EntityState.Modified;
-                }
-
-                context.SaveChanges();
-            
-            
-
             ViewBag.msg = "Venue added successfully";
             //return View(hall);
-            return RedirectToAction("AddVenue", new { id = 0 });
+            return RedirectToAction("MyListing");
         }
 
         public ActionResult MyListing()
@@ -141,13 +145,11 @@ namespace FYP_Demo.Controllers
             ////return View(from HallInfo in context.HallInfoes where HallInfo.HallInfoID == id select HallInfo);
             //return View(hall);
             var userID = User.Identity.GetUserId();
-            
-              var  query = from HallInfo in context.HallInfoes
+            var  halls = from HallInfo in context.HallInfoes
                             where HallInfo.VendorInfoID.Equals(userID)
                             select HallInfo;
-                
             
-            return View(query);
+            return View(halls);
         }
 
         public ActionResult VenueDetails(int id)
