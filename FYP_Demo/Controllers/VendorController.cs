@@ -166,12 +166,9 @@ namespace FYP_Demo.Controllers
         [HttpPost]
         public ActionResult DeleteVenue(int id, HallInfo hall)
         {
-            
-                context.HallInfoes.Remove(context.HallInfoes.Find(id));
+            context.HallInfoes.Remove(context.HallInfoes.Find(id));
                 context.SaveChanges();
                 return RedirectToAction("MyListing");
-            
-                
         }
 
        
