@@ -62,8 +62,8 @@
                                     <td>
                                         @Html.ActionLink("Edit", "AddVenue", new { id = item.HallInfoID }) |
                                         @Html.ActionLink("Details", "VenueDetails", new { id = item.HallInfoID }) |
-                                        @Html.ActionLink("Delete", "DeleteVenue", new { id = item.HallInfoID })
-                                        @*<a href="javascript:void(0);" class="anchorDetail" data-toggle="modal" data-target="#myModal" data-id="@item.HallInfoID">Delete</a>*@
+                                        
+                                        <a href="javascript:void(0);" class="anchorDetail" data-toggle="modal" data-target="#myModal" data-id="@item.HallInfoID" onclick="delete_modal(@item.HallInfoID)">Delete</a>
                                     </td>
                                 </tr>
                             }
@@ -108,9 +108,10 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete this ? This action can't be undone</p>
+                    <input type="hidden" value="" name="delete_id" id="delete_id" />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="link" data-dismiss="modal">Yes</button>
+                    <a href="" id="delete_anchor"><button type="button" class="link">Yes</button></a>
                     <button type="button" class="link" data-dismiss="modal">No</button>
                 </div>
             </div>
@@ -121,4 +122,13 @@
 
 
 </section>
- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script>
+     
+         function delete_modal(id) {
+             $("#delete_id").val(id);
+
+             $("#delete_anchor").attr("href","http://localhost:53676/Vendor/DeleteHall/"+id);
+         }
+     
+ </script>
