@@ -113,21 +113,26 @@ namespace FYP_Demo.Controllers
         {
             //Get Vendor ID
             hall.VendorInfoID = User.Identity.GetUserId();
+
             //Insert Dropdowns Data
             InsertDropdownSelectedData(hall);
-            
+
             if (hall.HallInfoID == 0)
             {
                 context.HallInfoes.Add(hall);
-
             }
             else
             {
                 //context.Entry(hall).State = EntityState.Detached;
                 //context.ChangeTracker.DetectChanges();
+                //context.HallTypes.RemoveRange(context.HallTypes
+                // .Where(ht => ht.HallInfoes
+                // .Any(hi => hi.HallInfoID == hall.HallInfoID)));
+
+                //context.ChangeTracker.DetectChanges();
                 context.Entry(hall).State = EntityState.Modified;
                 //context.HallInfoes.Attach(hall);
-                //context.ChangeTracker.DetectChanges();
+
             }
 
             context.SaveChanges();
@@ -205,6 +210,7 @@ namespace FYP_Demo.Controllers
                 }
             
         }
+
         public void PopulatingDropdownsForUpdate(HallInfo Hall, int id)
         {
             
